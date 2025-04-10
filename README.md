@@ -9,9 +9,6 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/jovisjoseph/shopify-clear-cart/releases/latest">
-    <img src="https://img.shields.io/github/v/release/jovisjoseph/shopify-clear-cart?style=flat-square" alt="Latest Release">
-  </a>
   <img src="https://img.shields.io/badge/platform-Chrome-brightgreen?style=flat-square" alt="Platform">
 </p>
 
