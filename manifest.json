@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Clear Cart",
+  "name": "Shopify Clear Cart",
   "version": "1.0",
-  "description": "Deletes the 'cart' cookie when the extension icon is clicked, in effect this clears the cart",
+  "description": "Deletes the 'cart' cookie when the extension icon is clicked",
   "action": {
     "default_icon": {
       "16": "images/icon16.png",
@@ -10,9 +10,22 @@
       "128": "images/icon128.png"
     }
   },
-  "permissions": ["cookies", "activeTab"],
+  "permissions": ["cookies", "activeTab", "scripting"],
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/icon48.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }

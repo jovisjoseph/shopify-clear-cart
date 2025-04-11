@@ -1,4 +1,15 @@
 chrome.action.onClicked.addListener((tab) => {
+  clearCartCookie(tab);
+});
+
+// Listen for messages from content script
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "clearCart") {
+    clearCartCookie(sender.tab);
+  }
+});
+
+function clearCartCookie(tab) {
   // Get the domain from the current tab URL
   const url = new URL(tab.url);
   const domain = url.hostname;
@@ -38,4 +49,4 @@ chrome.action.onClicked.addListener((tab) => {
       }
     }
   );
-});
+}
